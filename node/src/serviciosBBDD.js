@@ -47,36 +47,3 @@ const updateServ = (req,res,conn) => {
 
     });
 }
-
-exports.updateServ=updateServ;
-
-const insertServ = (req,res,conn) => {
-    let sql = "insert into servicios";
-
-    conn.query(sql, function (err, result,fields) {
-        if(err){
-            res.send(JSON.stringify({"status": 500, "error": err, "response": null}));
-        } else {
-            res.send(result);
-        }
-
-    });
-}
-
-exports.insertServ=insertServ;
-
-const deleteServ = (req,res,conn) => {
-    const idSer= req.query.idSer;
-    let sql = "delete from servicios where id_ser=" + idSer;
-
-    conn.query(sql, function (err, result,fields) {
-        if(err){
-            res.send(JSON.stringify({"status": 500, "error": err, "response": null}));
-        } else {
-            res.send(result);
-        }
-
-    });
-}
-
-exports.deleteServ=deleteServ;
